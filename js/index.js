@@ -1,4 +1,4 @@
-// 选项卡
+// 轮播图选项卡
 window.onload=function(){
 	let lis=document.querySelectorAll(".outer");
 	let inn=document.querySelectorAll(".bn-choose");
@@ -19,15 +19,15 @@ window.onload=function(){
 	let text=document.querySelectorAll(".hd-text");
 	let menu=document.querySelectorAll(".navmenu");
 	// console.log(menu);
-	for(let x=0;x<text.length;x++){
-		text[x].onmouseenter=function(){
-			for(let y=0;y<menu.length;y++){
-				menu[y].style.display="none";
+	for(let i=0;i<text.length;i++){
+		text[i].onmouseenter=function(){
+			for(let j=0;j<menu.length;j++){
+				menu[j].style.height=0;
 			}
-		menu[x].style.display="block";
+		menu[i].style.height=269+"px";
 		}
-		text[x].onmouseleave=function(){
-			menu[x].style.display="none";
+		text[i].onmouseleave=function(){
+			menu[i].style.height=0;
 		}
 	}
 
@@ -95,10 +95,10 @@ window.onload=function(){
 
 
 	    //移入图片停止轮播
-	    banner.onmouseenter=function () {
+	    banner.onmouseover=function () {
 	        clearInterval(t);
 	    }
-	    banner.onmouseleave=function () {
+	    banner.onmouseout=function () {
 	        t=setInterval(move,2000);
 	    }
 
@@ -165,6 +165,88 @@ window.onload=function(){
 
 
     
+    //为你推荐平移
+    let button=document.querySelectorAll(".rec-btn");
+    let miList=document.querySelector(".rec-list");
+    let w=parseInt(getComputedStyle(miList,null).width)/3;
+    let times=0;
+
+    //点击左箭头
+    button[0].onclick=function(){
+    	times--;
+    	if(times==-1){
+    		times=0;
+    	}
+    	miList.style.transform=`translate(-${w*times}px)`;
+    }
+    //点击右箭头
+    button[1].onclick=function(){
+    	times++;
+    	if(times==3){
+    		times=2;
+    	}
+    	miList.style.transform=`translate(-${w*times}px)`;
+    }
+
+    button[0].onmousedown=function(){
+    	button[0].style.color="#b0b0b0";
+    	button[1].style.color="#e0e0e0";
+    }
+    button[1].onmousedown=function(){
+    	button[1].style.color="#b0b0b0";
+    	button[0].style.color="#e0e0e0";
+    }
+
+
+
+//小米闪购平移
+let btn=document.querySelectorAll(".flash-btn");
+let flashList=document.querySelector(".flash-list");
+let wid=parseInt(getComputedStyle(flashList,null).width)/2;
+let count=0;
+
+//点击左箭头
+btn[0].onclick=function(){
+	count--;
+	if(count==-1){
+		count=0;
+	}
+	flashList.style.transform=`translate(-${wid*count}px)`;
+
+}
+//点击右箭头
+btn[1].onclick=function(){
+	count++;
+	if(count==2){
+		count=1;
+	}
+	flashList.style.transform=`translate(-${wid*count}px)`;
+
+}
+btn[0].onmousedown=function(){
+    	button[0].style.color="#b0b0b0";
+    	button[1].style.color="#e0e0e0";
+    }
+    button[1].onmousedown=function(){
+    	button[1].style.color="#b0b0b0";
+    	button[0].style.color="#e0e0e0";
+    }
+
+
+
+
+//购物车
+let shopping=document.querySelector(".shopping");
+// let spcar=document.querySelector(".sp-car");
+let goods=document.querySelector(".goods");
+console.log(shopping,goods);
+
+shopping.onmouseenter=function(){
+	goods.style.height=98+"px";
+}
+shopping.onmouseleave=function(){
+	goods.style.height=0;
+}
 
 
 }

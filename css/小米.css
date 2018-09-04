@@ -100,9 +100,9 @@ i{
 	overflow: hidden;
 	line-height: 98px;
 }
-.topbar .shopping:hover .goods{
+/* .topbar .shopping:hover .goods{
 	height: 98px;
-}
+} */
 .topbar .info{
 	width: 142px;
 	height: 40px;
@@ -155,8 +155,8 @@ i{
 	/* background: red; */
 	float: left;
 }
-.sec-bar .text a{
-	display: inline-block;
+.sec-bar .text .hd-text{
+	height: 100%;
 	font-size: 16px;
 	text-decoration: none;
 	color: #333;
@@ -164,7 +164,7 @@ i{
 	padding: 0 10px;
 	float: left;
 }
-.sec-bar .text a:hover{
+.sec-bar .text .hd-text:hover{
 	color: #ff6700;
 }
 .sec-bar .search{
@@ -265,14 +265,18 @@ i{
 
 /* 下拉菜单开始 */
 .sec-bar .navmenu{
-	height: 269px;
+	/* height: 269px; */
+	height: 0;
 	width: 100%;
 	position: absolute;
     top: 61px;
     left: 0;
     z-index: 20;
     box-shadow: 0 3px 4px rgba(0,0,0,0.18);
-    display: none;
+    overflow: hidden;
+	transition: all 1s;
+
+    /* display: none; */
     /* padding-top: 40px; */
     /* background: red; */
 }
@@ -735,7 +739,7 @@ i{
 	/* background: blue; */
 	margin-top: 24px;
 }
-.flash .box-hd .control a{
+.flash .box-hd .control button{
 	display: block;
 	width: 36px;
 	height: 24px;
@@ -748,15 +752,78 @@ i{
 	margin-left: -1px;
 	color: #e0e0e0;
 	font-weight: bold;
+	background: none;
+	outline: none;
+	cursor: pointer;
 }
-.flash .box-hd .control a:hover{
+.flash .box-hd .control button:nth-child(2){
+	color: #b0b0b0;
+}
+.flash .box-hd .control button:hover{
 	color: #ff6700;
 }
-.flash ul{
+.flash .countdown{
+	height: 380px;
+	float: left;
+	width: 234px;
+	height: 340px;
+	background: #FAFAFA;
+	margin-right: 14px;
+	border-top: 1px solid #ef3a3b;
+	padding-top: 39px;
+	background: #f1eded;
+	text-align: center;
+
+}
+.flash .countdown .time-title{
 	width: 100%;
+	padding-top: 15px;
+	font-size: 21px;
+	color: #ef3a3b;
+	text-align: center;
+}
+.flash .countdown .lightning{
+	margin: 25px auto;
+}
+.flash .countdown .text{
+	font-size: 15px;
+	text-align: center;
+	color: rgba(0,0,0,0.54);
+}
+.flash .countdown .time{
+	width: 168px;
+	height: 46px;
+	margin: 0 auto;
+	margin-top: 28px;
+	text-align: center;
+	line-height: 46px;
+	font-size: 22px;
+}
+.flash .countdown .time .num{
+	width: 46px;
+	height: 46px;
+	background: #605751;
+	float: left;
+	color: #fff;
+}
+.flash .countdown .time .dot{
+	width: 15px;
+	height: 46px;
+	float: left;
+	color: #605751;
+}
+.flash .flash-box{
+	height: 380px;
+	width: 978px;
+	float: left;
+	overflow: hidden;
+}
+.flash ul{
+	width: 1984px;
 	height: 380px;
 	/* background: blue; */
 	padding-bottom: 40px;
+	transition: all 1s;
 }
 .flash ul li{
 	float: left;
@@ -766,59 +833,16 @@ i{
 	margin-right: 14px;
 	border-top: 1px solid #ffac13;
 }
-.flash ul li:nth-child(5){
-	margin-right: 0;
+.flash ul li:nth-child(4){
 	border-top: 1px solid #e53935;
 }
-.flash ul li:nth-child(4){
+.flash ul li:nth-child(3){
 	border-top: 1px solid #2196f3;
 }
-.flash ul li:nth-child(3){
+.flash ul li:nth-child(2){
 	border-top: 1px solid #83c44e;
 }
-.flash ul li:nth-child(1){
-	border-top: 1px solid #ef3a3b;
-	padding-top: 39px;
-	background: #f1eded;
-	text-align: center;
-}
-.flash ul li .time-title{
-	width: 100%;
-	padding-top: 15px;
-	font-size: 21px;
-	color: #ef3a3b;
-	text-align: center;
-}
-.flash ul li .lightning{
-	margin: 25px auto;
-}
-.flash ul li .text{
-	font-size: 15px;
-	text-align: center;
-	color: rgba(0,0,0,0.54);
-}
-.flash ul li .time{
-	width: 168px;
-	height: 46px;
-	margin: 0 auto;
-	margin-top: 28px;
-	text-align: center;
-	line-height: 46px;
-	font-size: 22px;
-}
-.flash ul li .time .num{
-	width: 46px;
-	height: 46px;
-	background: #605751;
-	float: left;
-	color: #fff;
-}
-.flash ul li .time .dot{
-	width: 15px;
-	height: 46px;
-	float: left;
-	color: #605751;
-}
+
 .flash ul li .pic img{
 	width: 160px;
 	height: 160px;
@@ -871,6 +895,10 @@ i{
 	padding-bottom: 10px;
 
 }
+.center .container{
+	overflow: hidden;
+	
+}
 
 
 /* 手机板块开始 */
@@ -910,6 +938,26 @@ i{
 .center .phone .title .more a:hover .icon-gengduo{
 	color: #ff6700;
 }
+.center .phone .fix-box{
+	width: 234px;
+	background: #fff;
+	float: left;
+	margin: 0 14px 0 0;
+	transition:all .5s;
+	height: 614px;
+}
+.center .phone .fix-box:hover{
+	box-shadow: 0 15px 40px 2px rgb(0,0,0,0.1);
+	transform: translateY(-5px);
+}
+.center .phone .fix-box img.first{
+	width: 100%;
+	height: 100%;
+	margin-top: 0;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 18px;
+}
 .center .phone ul li{
 	width: 234px;
 	height: 300px;
@@ -922,14 +970,11 @@ i{
 	box-shadow: 0 15px 40px 2px rgb(0,0,0,0.1);
 	transform: translateY(-5px);
 }
-.center .phone ul li:nth-child(1){
-	margin-bottom: 0;
-	height: 614px;
-}
-.center .phone ul li:nth-child(5){
+
+.center .phone ul li:nth-child(4){
 	margin-right: 0;
 }
-.center .phone ul li:nth-child(9){
+.center .phone ul li:nth-child(8){
 	margin-right: 0;
 }
 .center .phone ul li img{
@@ -939,11 +984,6 @@ i{
 	margin: 0 auto;
 	margin-top: 20px;
 	margin-bottom: 18px;
-}
-.center .phone ul li .first{
-	width: 100%;
-	height: 100%;
-	margin-top: 0;
 }
 .center .phone ul li h3{
 	font-size: 14px;
@@ -1000,6 +1040,7 @@ i{
 	right: 0;
 	/* height: 28px; */
 }
+
 .center .homeelec .title .more ul{
 	/* color: #333; */
 	font-size: 16px;
@@ -1018,6 +1059,25 @@ i{
 	color: #ff6700;
 	border-bottom: 2px solid #ff6700;
 }
+.center .homeelec .fix-box{
+	display: flex;
+	flex-direction: column;
+	float: left;
+}
+.center .homeelec .fix-box .fix-box-top,.fix-box-bottom{
+	width: 234px;
+	height: 300px;
+	margin: 0 14px 14px 0;
+	background: #fff;
+	float: left;
+	position: relative;	
+	transition: all .5s;
+	overflow: hidden;
+}
+.center .homeelec .fix-box img.pic{
+	width: 100%;
+	height: 100%;
+}
 .center .homeelec .span li{
 	width: 234px;
 	height: 300px;
@@ -1034,22 +1094,16 @@ i{
 	box-shadow: 0 15px 40px 2px rgb(0,0,0,0.1);
 	transform: translateY(-5px);
 }
-.center .homeelec .span li:nth-child(5){
+.center .homeelec .span li:nth-child(4){
 	margin-right: 0;
 }
-.center .homeelec .span li:nth-child(10){
-	margin-right: 0;
-	height: 143px;
-}
-.center .homeelec .span li:nth-child(11){
+.center .homeelec .span li:nth-child(8){
 	margin-right: 0;
 	height: 143px;
 }
-.center .homeelec .span li:nth-child(1){
-	padding: 0;
-}
-.center .homeelec .span li:nth-child(6){
-	padding: 0;
+.center .homeelec .span li:nth-child(9){
+	margin-right: 0;
+	height: 143px;
 }
 .center .homeelec .span .flag{
 	background: #e53935;
@@ -1068,12 +1122,7 @@ i{
 	height: 150px;
 	margin: 0 42px 18px;
 }
-.center .homeelec .span li .pic{
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
+
 .center .homeelec .span li h3{
 	font-size: 14px;
 	color: #333;
@@ -1222,7 +1271,7 @@ i{
 	/* background: blue; */
 	margin-top: 24px;
 }
-.center .recommend .box-hd .control a{
+/* .center .recommend .box-hd .control a{
 	display: block;
 	width: 36px;
 	height: 24px;
@@ -1235,13 +1284,34 @@ i{
 	margin-left: -1px;
 	color: #e0e0e0;
 	font-weight: bold;
+} */
+.center .recommend .box-hd .control button{
+	display: block;
+	width: 36px;
+	height: 24px;
+	border: 1px solid #e0e0e0;
+	padding: 3px 5px;
+	float: left;
+	font-size: 16px;
+	text-align: center;
+	line-height: 16px;
+	margin-left: -1px;
+	color: #e0e0e0;
+	font-weight: bold;
+	background: none;
+	outline: none;
+	cursor: pointer;
 }
-.center .recommend .box-hd .control a:hover{
+.center .recommend .box-hd .control button:nth-child(2){
+	color: #b0b0b0;
+}
+.center .recommend .box-hd .control button:hover{
 	color: #ff6700;
 }
 .center .recommend ul{
-	width: 100%;
+	width: 3720px;
 	height: 300px;
+	transition: all 1s;
 }
 .center .recommend ul li{
 	width: 234px;
@@ -1257,9 +1327,9 @@ i{
 	box-shadow: 0 15px 40px 2px rgb(0,0,0,0.1);
 	transform: translateY(-5px);
 }
-.center .recommend ul li:nth-child(5){
+/* .center .recommend ul li:nth-child(5){
 	margin-right: 0;
-}
+} */
 .center .recommend ul li .pic{
 	padding: 40px 0 15px;
 	height: 200px;
