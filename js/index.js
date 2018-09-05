@@ -24,7 +24,7 @@ window.onload=function(){
 			for(let j=0;j<menu.length;j++){
 				menu[j].style.height=0;
 			}
-		menu[i].style.height=269+"px";
+		menu[i].style.height=229+"px";
 		}
 		text[i].onmouseleave=function(){
 			menu[i].style.height=0;
@@ -199,54 +199,99 @@ window.onload=function(){
 
 
 
-//小米闪购平移
-let btn=document.querySelectorAll(".flash-btn");
-let flashList=document.querySelector(".flash-list");
-let wid=parseInt(getComputedStyle(flashList,null).width)/2;
-let count=0;
+	//小米闪购平移
+	let btn=document.querySelectorAll(".flash-btn");
+	let flashList=document.querySelector(".flash-list");
+	let wid=parseInt(getComputedStyle(flashList,null).width)/2;
+	let count=0;
 
-//点击左箭头
-btn[0].onclick=function(){
-	count--;
-	if(count==-1){
-		count=0;
+	//点击左箭头
+	btn[0].onclick=function(){
+		count--;
+		if(count==-1){
+			count=0;
+		}
+		flashList.style.transform=`translate(-${wid*count}px)`;
+
 	}
-	flashList.style.transform=`translate(-${wid*count}px)`;
+	//点击右箭头
+	btn[1].onclick=function(){
+		count++;
+		if(count==2){
+			count=1;
+		}
+		flashList.style.transform=`translate(-${wid*count}px)`;
 
-}
-//点击右箭头
-btn[1].onclick=function(){
-	count++;
-	if(count==2){
-		count=1;
 	}
-	flashList.style.transform=`translate(-${wid*count}px)`;
-
-}
-btn[0].onmousedown=function(){
-    	button[0].style.color="#b0b0b0";
-    	button[1].style.color="#e0e0e0";
-    }
-    button[1].onmousedown=function(){
-    	button[1].style.color="#b0b0b0";
-    	button[0].style.color="#e0e0e0";
-    }
+	btn[0].onmousedown=function(){
+		btn[1].style.color="#b0b0b0";
+		btn[0].style.color="#e0e0e0";
+	}
+	btn[1].onmousedown=function(){
+	 	btn[0].style.color="#b0b0b0";
+	 	btn[1].style.color="#e0e0e0";
+	}
 
 
 
 
-//购物车
-let shopping=document.querySelector(".shopping");
-// let spcar=document.querySelector(".sp-car");
-let goods=document.querySelector(".goods");
-console.log(shopping,goods);
+	//购物车
+	let shopping=document.querySelector(".shopping");
+	// let spcar=document.querySelector(".sp-car");
+	let goods=document.querySelector(".goods");
+	console.log(shopping,goods);
 
-shopping.onmouseenter=function(){
-	goods.style.height=98+"px";
-}
-shopping.onmouseleave=function(){
-	goods.style.height=0;
-}
+	shopping.onmouseenter=function(){
+		goods.style.height=98+"px";
+	}
+	shopping.onmouseleave=function(){
+		goods.style.height=0;
+	}
+
+
+
+
+
+	//家电板块选项卡
+	let elect=document.querySelectorAll(".elec-list");
+	let elecc=document.querySelectorAll(".elec-span");
+	// console.log(elect,elecc);
+	
+	elecc[3].style.display="block";
+	elect[3].classList.add("change");
+	elect.forEach(function(value,index){
+		value.onmouseenter=function(){
+			elecc.forEach(function(element,i){
+				elect[i].classList.remove("change");
+				element.style.display="none";
+			})
+			value.classList.add("change");
+			elecc[index].style.display="block";
+		}
+	})
+
+
+
+
+	//返回按钮
+	let back=document.querySelector(".back");
+	//点击返回顶部
+	back.onclick=function(){
+		animate(document.body,{scrollTop:0});
+		animate(document.documentElement,{scrollTop:0});
+
+	}
+	//页面滑动到一定高度出现按钮
+	let wh=window.innerHeight;
+	window.onscroll=function(){
+		let bh=document.body.scrollTop||document.documentElement.scrollTop;
+		if (wh+bh>=1500) {
+			back.style.display="block";
+		}else{
+			back.style.display="none";
+		}
+	}
+	
 
 
 }

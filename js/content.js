@@ -77,7 +77,7 @@ function contentBn(imgs,point,leftbtn,rightbtn,widths){
                 });
                 point[now].classList.remove("hot1");
                 point[i].classList.add("hot1");
-                now=i;
+                now=next=i;
             }else{
                 imgs[i].style.left=`$-{widths}px`;
                 animate(imgs[now],{left:widths});
@@ -86,7 +86,7 @@ function contentBn(imgs,point,leftbtn,rightbtn,widths){
                 });
                 point[now].classList.remove("hot1");
                 point[i].classList.add("hot1");
-                now=i;
+                now=next=i;
             }
         }
     }
