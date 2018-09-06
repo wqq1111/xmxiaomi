@@ -276,21 +276,21 @@ i{
     top: 100px;
     left: 0;
     z-index: 20;
-    /* box-shadow: 0 3px 4px rgba(0,0,0,0.18); */
     overflow: hidden;
 	transition: all 1s;
-	border-top: 1px solid #e0e0e0;
+	/* display: none; */
 
-    /* display: none; */
-    /* padding-top: 40px; */
-    /* background: red; */
 }
 .sec-bar .navmenu ul{
-	/* width: 100%; */
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	background-color: #fff;
 	position: absolute;
+	border-top: 1px solid #e0e0e0;
+	top: 0;
+	left: 0;
+	z-index: 24;
 	/* position: relative; */
 	/* top: 39px; */
 
@@ -1918,6 +1918,7 @@ i{
 	text-align: center;
 	padding-top: 6px;
 	display: none;
+	position: relative;
 }
 .sidebar .top ul
 {
@@ -1931,6 +1932,8 @@ i{
 	border-bottom: 1px solid #f5f5f5;
 	text-align: center;
 	line-height: 40px;
+	position: relative;
+	cursor: pointer;
 }
 .sidebar .back i.icon-huidingbu{
 	color: #B2B2B2;
@@ -1961,4 +1964,47 @@ i{
 .sidebar .top ul li:hover i.icon-shop{
 	color: #ff6700;
 }
+
+/* 提示框 */
+.sidebar .prom{
+    width: 126px;
+    height: 27px;	
+	position: absolute;
+    left: -125px;
+    top: 6px;
+    display: none;
+    cursor: pointer;
+    /* background: red; */
+}
+.sidebar .prom .arrow{
+	width: 11px;
+	height: 27px;
+	margin-left: -1px;
+	float: right;
+	background-image: url('../img/bt-arrow.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 29;
+}
+.sidebar .prom p{
+	height: 100%;
+	display: block;
+	float: right;
+	padding: 0 8px;
+	font-size: 14px;
+	color: #757575;
+	text-align: center;
+	line-height: 27px;
+	background: #fff;
+	border: 1px solid #f5f5f5;
+}
+
+.sidebar .top ul li:hover .prom{
+	display: block;
+}
+.sidebar .back:hover .prom{
+	display: block;
+}
+
 /* 侧边栏结束 */
