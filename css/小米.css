@@ -1321,12 +1321,11 @@ i{
 	background: none;
 	outline: none;
 	cursor: pointer;
-}
-.center .recommend .box-hd .control button:nth-child(2){
-	color: #b0b0b0;
-}
-.center .recommend .box-hd .control button:hover{
+}.center .recommend .box-hd .control button:hover{
 	color: #ff6700;
+}
+.center .recommend .box-hd .control .btn-change{
+	color: #b0b0b0;
 }
 .center .recommend ul{
 	width: 3720px;

@@ -171,6 +171,8 @@ window.onload=function(){
     let w=parseInt(getComputedStyle(miList,null).width)/3;
     let times=0;
 
+    button[1].classList.add("btn-change");
+
     //点击左箭头
     button[0].onclick=function(){
     	times--;
@@ -178,6 +180,11 @@ window.onload=function(){
     		times=0;
     	}
     	miList.style.transform=`translate(-${w*times}px)`;
+    	button[0].classList.add("btn-change");
+    	button[1].classList.add("btn-change");
+    	if(times==0){
+    		button[0].classList.remove("btn-change");
+    	}
     }
     //点击右箭头
     button[1].onclick=function(){
@@ -186,16 +193,13 @@ window.onload=function(){
     		times=2;
     	}
     	miList.style.transform=`translate(-${w*times}px)`;
+    	button[1].classList.add("btn-change");
+    	button[0].classList.add("btn-change");
+    	if(times==2){
+    		button[1].classList.remove("btn-change");
+    	}
     }
-
-    button[0].onmousedown=function(){
-    	button[0].style.color="#b0b0b0";
-    	button[1].style.color="#e0e0e0";
-    }
-    button[1].onmousedown=function(){
-    	button[1].style.color="#b0b0b0";
-    	button[0].style.color="#e0e0e0";
-    }
+    
 
 
 
